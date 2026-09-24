@@ -4,6 +4,7 @@ import { Button } from './components/ui/button';
 import closedChest from './assets/treasure_closed.png';
 import treasureChest from './assets/treasure_opened.png';
 import skeletonChest from './assets/treasure_opened_skeleton.png';
+import keyCursor from './assets/key.png';
 import chestOpenSound from './audios/chest_open.mp3';
 import evilLaughSound from './audios/chest_open_with_evil_laugh.mp3';
 
@@ -39,7 +40,12 @@ export default function App() {
 
   const openBox = (boxId: number) => {
     if (gameEnded) return;
-    
+
+    const clickedBox = boxes.find(box => box.id === boxId);
+    if (clickedBox && !clickedBox.isOpen) {
+      new Audio(clickedBox.hasTreasure ? chestOpenSound : evilLaughSound).play();
+    }
+
     setBoxes(prevBoxes => {
       const updatedBoxes = prevBoxes.map(box => {
         if (box.id === boxId && !box.isOpen) {
@@ -90,7 +96,8 @@ export default function App() {
             {boxes.map((box) => (
               <motion.div
                 key={box.id}
-                className="flex flex-col items-center cursor-pointer"
+                className="flex flex-col items-center"
+                style={{ cursor: box.isOpen ? 'default' : `url(${keyCursor}) 4 4, pointer` }}
                 whileHover={{ scale: box.isOpen ? 1 : 1.05 }}
                 whileTap={{ scale: box.isOpen ? 1 : 0.95 }}
                 onClick={() => openBox(box.id)}
