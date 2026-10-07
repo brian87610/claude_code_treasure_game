@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "deploy-plugin@svuncle-plugins-003": true,
+    "amastek-deploy@amastek-plugins": true
+  }
+}

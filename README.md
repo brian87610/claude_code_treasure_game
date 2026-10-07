@@ -16,8 +16,9 @@ npm run dev'
 > check the comments of existing changes
 
 type '#' first 
-"Always add comments on the top of every new function in one line to summarize the usage and Must document the inputs and output parameters" 
+"add comments on the top of every new function in one line to summarize the usage and you MUST document the inputs and output parameters" 
 > 2. Project memory
+> "Read CLAUDE.md"
 
 > use @src/audios/chest_open_with_evil_laugh.mp3 in the @src/App.tsx to play the sound effect of the chest with skeleton inside being opened  
 

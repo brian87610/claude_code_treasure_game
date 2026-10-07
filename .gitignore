@@ -138,6 +138,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-build/
-*/.DS_Store
 .vercel/
+build/
+.vercel
+*/.DS_Store
+
+# SQLite database (contains user data)
+*.db
